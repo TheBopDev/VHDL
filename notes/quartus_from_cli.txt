@@ -1,0 +1,35 @@
+Default quartus help:
+
+    quartus_sh -h
+
+==========================
+Compiling
+
+    quartus_sh --flow compile <file name>
+
+For full list of commands with flow:
+    quartus_sh --help=flow
+
+For rapid recompile after making design change:
+    quartus_sh --flow recompile <file name>
+
+
+
+==========================
+JTAG issues
+For me, I plug my USB into the SAME USB PORT every time.
+When I do so and run the following command:
+    sudo dmesg
+I get the following information:
+USB 1-3: idVendor=09fb
+USB 1-3: idProduct=6001
+USB 1-3: Product: USB-Blaster
+USB 1-3: Manufacturer: Altera
+USB 1-3: SerialNumber: 91d28408
+
+
+
+==========================
+Flash to FPGA!
+    quartus_pgm -m jtag -o "p;path/to/file.sof@1"
+Note, you may need to modify the @# to be the # of your port.
